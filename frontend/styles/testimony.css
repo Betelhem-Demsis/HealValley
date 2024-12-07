@@ -1,0 +1,98 @@
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.testimony .swiper {
+  width: 100%;
+  height: 90vh;
+  padding: 70px 60px;
+  background: #9695950a;
+}
+.Testimony-title {
+  text-align: center;
+  padding-top: 60px;
+}
+.Testimony-title {
+  font-size: 20px;
+}
+.testimony .swiper-slide .star {
+  padding-left: 105px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.testimony .swiper-slide {
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #8f31312a;
+}
+.testimony .swiper-slide:hover {
+  border: 4px solid #1ec9e8;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 30px;
+  height: 30px;
+  background-color: #26d0c7;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px;
+}
+
+.swiper-button-next {
+  right: 50px;
+}
+
+.swiper-button-prev {
+  left: 50px;
+}
+
+@media (max-width: 640px) {
+  .testimony .swiper-slide .star {
+    padding-left: 63px;
+  }
+  .testimony {
+    padding: 0 0;
+  }
+  .Testimony-title h1 {
+    font-size: 28px;
+  }
+  .testimony .swiper {
+    /* width: 100%;
+      height: 90vh; */
+    padding: 70px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimony {
+    padding: 0 60px;
+  }
+}

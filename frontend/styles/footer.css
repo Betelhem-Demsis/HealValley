@@ -1,0 +1,40 @@
+
+ @media (max-width: 768px) {
+    .footer{
+      object-fit: cover;
+    }
+   .footer-bottom{
+      margin-top: -34px;
+    }  
+   
+    .region-button{
+      font-size: 15px; 
+      padding: 5px 15px;
+    }
+    .links{
+      font-size: 18px;
+      display: grid;
+      row-gap: 15px;
+      margin-left: -40px;
+      margin-top: -50px;
+    }
+  }
+  .region-button{
+    display:flex;
+    text-align: center;
+    background: rgba(107, 105, 105, 0.808);
+    margin-top: 20px;
+    font-size: 18px; 
+    color: white;
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .region-button:hover{
+    background: #c27373;
+  }
+
+  .region-button span{
+    padding-top: 20px;
+  }

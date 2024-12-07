@@ -1,0 +1,119 @@
+.register-container {
+  max-width: 600px; /* Increased width for better spacing */
+  background: linear-gradient(
+    to bottom,
+    #e3eaf2,
+    #cfd9df
+  ); /* Softer gradient for a polished look */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 40px;
+  border-radius: 10px; /* Rounded corners for a modern design */
+  margin: 6rem auto;
+  text-align: center;
+}
+
+.register-container img {
+  width: 100px;
+  margin: 0 auto 15px; /* Adjusted margin for consistency */
+  display: block;
+}
+
+.register-container h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2d3748;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.register-container .login-link {
+  font-size: 16px;
+  color: #4a5568;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.register-container .login-link a {
+  color: #2b6cb0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-container .login-link a:hover {
+  text-decoration: underline;
+}
+
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reg-form .name {
+  display: flex;
+  gap: 15px;
+}
+
+.reg-form input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #cbd5e0;
+  border-radius: 5px;
+  background: #f7fafc;
+  transition: border-color 0.3s;
+}
+
+.reg-form input:focus {
+  border-color: #3182ce;
+  outline: none;
+}
+
+.reg-form input[type="number"]::-webkit-inner-spin-button,
+.reg-form input[type="number"]::-webkit-outer-spin-button {
+  appearance: none; /* Hide spin buttons in number inputs */
+}
+
+.register-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #2b6cb0;
+}
+
+.register-container .user-type-selection {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .reg-form .name {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .reg-form input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .register-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
