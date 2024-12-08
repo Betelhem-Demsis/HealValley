@@ -10,6 +10,7 @@ import Link from "next/link";
 
 function NavBar({ currentPath }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(null);
 
   const navLinks = [
     { name: "HOME", path: "/" },
@@ -17,6 +18,10 @@ function NavBar({ currentPath }) {
     { name: "SERVICES", path: "/services" },
     { name: "HOW IT WORKS", path: "/how-it-works" },
   ];
+
+  const toggleDropdown = (type) => {
+    setDropdown((prev) => (prev === type ? null : type));
+  };
 
   return (
     <Disclosure as="nav" className="relative">
@@ -29,7 +34,7 @@ function NavBar({ currentPath }) {
                 <div className="flex-shrink-0">
                   <Link href="/">
                     <h1 className="text-2xl mb-4 font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">
-                      Cure-Connect
+                      HealValley
                     </h1>
                   </Link>
                 </div>
@@ -54,17 +59,54 @@ function NavBar({ currentPath }) {
                   </div>
 
                   {/* Auth Buttons */}
-                  <div className="flex items-center space-x-8">
-                    <Link href="/signup">
-                      <button className="px-6 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
-                        Register
-                      </button>
-                    </Link>
-                    <Link href="/login">
-                      <button className="px-6 py-2 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition-colors duration-300 transform hover:scale-105">
-                        Login
-                      </button>
-                    </Link>
+                  <div className="relative flex items-center space-x-8">
+                    {/* Register Button */}
+                    <button
+                      onClick={() => toggleDropdown("register")}
+                      className="px-6 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105"
+                    >
+                      Register
+                    </button>
+                    {dropdown === "register" && (
+                      <div className="absolute top-full mt-2 w-48 bg-white shadow-md rounded-md z-50">
+                        <Link
+                          href="/signup"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        >
+                          As Patient
+                        </Link>
+                        <Link
+                          href="/register"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        >
+                          As Doctor
+                        </Link>
+                      </div>
+                    )}
+
+                    {/* Login Button */}
+                    <button
+                      onClick={() => toggleDropdown("login")}
+                      className="px-6 py-2 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition-colors duration-300 transform hover:scale-105"
+                    >
+                      Login
+                    </button>
+                    {dropdown === "login" && (
+                      <div className="absolute top-full mt-2 w-48 bg-white shadow-md rounded-md z-50">
+                        <Link
+                          href="/login"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        >
+                          As Patient
+                        </Link>
+                        <Link
+                          href="/logiin"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        >
+                          As Doctor
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -108,16 +150,53 @@ function NavBar({ currentPath }) {
               ))}
 
               <div className="space-y-3 pt-4">
-                <Link href="/signup" className="block">
-                  <button className="w-full px-4 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors duration-300">
-                    Register
-                  </button>
-                </Link>
-                <Link href="/login" className="block">
-                  <button className="w-full px-4 py-2 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition-colors duration-300">
-                    Login
-                  </button>
-                </Link>
+                {/* Register Dropdown for Mobile */}
+                <button
+                  onClick={() => toggleDropdown("register")}
+                  className="block w-full px-4 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors duration-300"
+                >
+                  Register
+                </button>
+                {dropdown === "register" && (
+                  <div className="mt-2 bg-white shadow-md rounded-md">
+                    <Link
+                      href="/signup"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      As Patient
+                    </Link>
+                    <Link
+                      href="/register"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      As Doctor
+                    </Link>
+                  </div>
+                )}
+
+                {/* Login Dropdown for Mobile */}
+                <button
+                  onClick={() => toggleDropdown("login")}
+                  className="block w-full px-4 py-2 rounded-full border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-50 transition-colors duration-300"
+                >
+                  Login
+                </button>
+                {dropdown === "login" && (
+                  <div className="mt-2 bg-white shadow-md rounded-md">
+                    <Link
+                      href="/login"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      As Patient
+                    </Link>
+                    <Link
+                      href="/logiin"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      As Doctor
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </DisclosurePanel>

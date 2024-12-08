@@ -3,7 +3,7 @@ const Doctor = require("../Models/doctorModel");
 const APIFeatures = require("../utils/features");
 
 exports.getAllDoctors = catchAsync(async (req, res, next) => {
-  const features = new APIFeatures(Doctor.find(filter), req.query)
+  const features = new APIFeatures(Doctor.find(), req.query)
     .filter()
     .sort()
     .search()

@@ -66,7 +66,7 @@ export default function DoctorRegister() {
       <img src="" alt="Logo" className="logo" />
       <h1>Register as a Doctor</h1>
       <p className="login-link">
-        Already have an account? <Link href="/login">Login</Link>
+        Already have an account? <Link href="/logiin">Login</Link>
       </p>
       <form className="reg-form" onSubmit={handleSubmit}>
         <div className="name">

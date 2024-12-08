@@ -19,7 +19,8 @@ function patient() {
       name: "Dr. John Doe",
       speciality: "Cardiologist",
       hospital: "City Hospital",
-      image: "https://via.placeholder.com/150",
+      image:
+        "https://media.istockphoto.com/id/638647058/photo/we-offer-our-patients-premium-healthcare-here.jpg?s=612x612&w=0&k=20&c=pek5ehwgsZNPemeEh4bObQ1U5DRPEs0WHleosG-daa8=",
       availableDates: ["2024-12-07", "2024-12-08", "2024-12-09"],
       bookedDates: ["2024-12-07"],
       pay: "20 birr/min",
@@ -29,7 +30,8 @@ function patient() {
       name: "Dr. Jane Smith",
       speciality: "Dermatologist",
       hospital: "SkinCare Clinic",
-      image: "https://via.placeholder.com/150",
+      image:
+        "https://thumbs.dreamstime.com/b/portrait-positive-black-doctor-holding-medical-chart-male-over-white-background-178499631.jpg",
       availableDates: ["2024-12-10", "2024-12-11", "2024-12-12"],
       bookedDates: ["2024-12-10", "2024-12-12"],
       pay: "20 birr/min",
@@ -39,7 +41,8 @@ function patient() {
       name: "Dr. Emily White",
       speciality: "Pediatrician",
       hospital: "Children's Care Center",
-      image: "https://via.placeholder.com/150",
+      image:
+        "https://t4.ftcdn.net/jpg/03/55/64/53/360_F_355645384_lPYHUp9YBvmq479otGTB9qJNN8efv69X.jpg",
       availableDates: ["2024-12-13", "2024-12-14", "2024-12-15"],
       bookedDates: [],
       pay: "20 birr/min",
@@ -49,10 +52,11 @@ function patient() {
       name: "Dr. Mark Brown",
       speciality: "Orthopedic",
       hospital: "OrthoCare Clinic",
-      image: "https://via.placeholder.com/150",
+      image:
+        "https://www.shutterstock.com/image-photo/smiling-young-african-american-curly-260nw-2319779015.jpg",
       availableDates: ["2024-12-16", "2024-12-17", "2024-12-18"],
       bookedDates: ["2024-12-16"],
-      pay: "20 birr/min",
+      pay: "Free",
     },
   ]);
 
@@ -161,7 +165,7 @@ function patient() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-blue-600">Cure-Connect</h1>
+              <h1 className="text-2xl font-bold text-blue-600">HealValley</h1>
             </div>
 
             {/* Search Bar */}
@@ -243,13 +247,22 @@ function patient() {
             className="mySwiper"
           >
             <SwiperSlide>
-              <img src="/slide1.jpg" alt="Slide 1" />
+              <img
+                src="https://www.healthcareitnews.com/sites/hitn/files/111521%205%20Year%20IT%20Telehealth%201200_0.jpg"
+                alt="Slide 1"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="/slide2.jpg" alt="Slide 2" />
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOGGr-zzRbhCdSUJ3virwwgBLKxfeqekFXHg&s"
+                alt="Slide 2"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="/slide3.jpg" alt="Slide 3" />
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7LO-A7Grq3Mm9YWZnZYjnFV8CJTcIWu231w&s"
+                alt="Slide 3"
+              />
             </SwiperSlide>
           </Swiper>
         </div>

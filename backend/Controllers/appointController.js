@@ -4,17 +4,8 @@ const Doctor = require("../Models/doctorModel");
 const Patient = require("../Models/patientModel");
 const Feature = require("../utils/features");
 const crypto = require("crypto");
-
-const ZOOM_SDK_KEY = process.env.ZOOM_SDK_KEY;
-const ZOOM_SDK_SECRET = process.env.ZOOM_SDK_SECRET;
-
-const generateMeetingNumber = () => {
-  return Math.floor(Math.random() * 900000000) + 100000000;
-};
-
-const generatePassword = () => {
-  return crypto.randomBytes(4).toString("hex");
-};
+const { getToken, createZoomMeeting } = require("../Meeting/zoomUtils");
+const AppError = require("../utils/appError");
 
 exports.getAllAppointments = catchAsync(async (req, res, next) => {
   let filter = {};
@@ -74,7 +65,7 @@ exports.updateAppointment = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createAppointment = catchAsync(async (req, res) => {
+exports.createAppointment = catchAsync(async (req, res, next) => {
   const doctor = await Doctor.findById(req.body.doctor);
   const patient = await Patient.findById(req.body.patient);
 
@@ -82,17 +73,46 @@ exports.createAppointment = catchAsync(async (req, res) => {
     return next(new AppError("Doctor or Patient not found", 404));
   }
 
-  const meetingNumber = generateMeetingNumber();
-  const password = generatePassword();
+  const ZOOM_ACCOUNT_ID = process.env.ZOOM_ACCOUNT_ID;
+  const ZOOM_CLIENT_ID = process.env.ZOOM_CLIENT_ID;
+  const ZOOM_CLIENT_SECRET = process.env.ZOOM_CLIENT_SECRET;
+
+  const accessToken = await getToken(
+    ZOOM_ACCOUNT_ID,
+    ZOOM_CLIENT_ID,
+    ZOOM_CLIENT_SECRET
+  );
+
+  if (!accessToken) {
+    return next(new AppError("Failed to generate Zoom access token", 500));
+  }
+
+  const zoomMeetingData = {
+    topic: `Appointment with Dr. ${doctor.name}`,
+    type: 2,
+    start_time: req.body.dateTime,
+    duration: 30,
+    timezone: "UTC",
+    settings: {
+      join_before_host: true,
+      participant_video: true,
+      host_video: true,
+      mute_upon_entry: true,
+    },
+  };
+
+  const zoomMeeting = await createZoomMeeting(zoomMeetingData, accessToken);
+
+  if (!zoomMeeting) {
+    return next(new AppError("Failed to create Zoom meeting", 500));
+  }
+
   const appointmentData = {
     ...req.body,
     zoomMeeting: {
-      meetingNumber: meetingNumber.toString(),
-      passWord: password,
-      sdkKey: ZOOM_SDK_KEY,
-      userName: doctor.name,
-      userEmail: doctor.email,
-      role: 1,
+      meetingId: zoomMeeting.id,
+      meetingLink: zoomMeeting.join_url,
+      password: zoomMeeting.password,
     },
   };
 
@@ -102,6 +122,7 @@ exports.createAppointment = catchAsync(async (req, res) => {
     patient.currentAppointments.push(newAppointment._id);
     await patient.save();
   }
+
   if (req.body.doctor) {
     doctor.currentAppointments.push(newAppointment._id);
     await doctor.save();

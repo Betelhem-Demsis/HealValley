@@ -1,6 +1,7 @@
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 import { useState } from "react";
+import Link from "next/link";
 
 const DoctorDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -129,12 +130,14 @@ const DoctorDashboard = () => {
                     <td className="py-2 px-4">John Doe</td>
                     <td className="py-2 px-4">2024-12-10</td>
                     <td className="py-2 px-4">
-                      <button
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none"
-                        onClick={() => handleStartChat("John Doe")}
-                      >
-                        Start Chat
-                      </button>
+                      <Link href="/chat">
+                        <button
+                          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none"
+                          onClick={() => handleStartChat("John Doe")}
+                        >
+                          Start Chat
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                   <tr className="border-b hover:bg-gray-50">
@@ -142,12 +145,14 @@ const DoctorDashboard = () => {
                     <td className="py-2 px-4">Jane Smith</td>
                     <td className="py-2 px-4">2024-12-12</td>
                     <td className="py-2 px-4">
-                      <button
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none"
-                        onClick={() => handleStartChat("Jane Smith")}
-                      >
-                        Start Chat
-                      </button>
+                      <Link href="/chat">
+                        <button
+                          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none"
+                          onClick={() => handleStartChat("Jane Smith")}
+                        >
+                          Start Chat
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                   {/* Add more rows here */}

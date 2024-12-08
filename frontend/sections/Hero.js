@@ -152,7 +152,7 @@ export default function Hero() {
               variants={textVariant(0.3)}
             >
               {" "}
-              Made by Ethiopian <br /> For Etiopian.
+              Made by Ethiopian <br /> For Ethiopian.
             </motion.h2>
             <motion.p
               initial="hidden"

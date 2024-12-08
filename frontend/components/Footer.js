@@ -7,7 +7,7 @@ function Footer() {
   return (
     <div className="bg-slate-500 mt-20 footer">
       <div className="lg:flex sm:grid justify-between pt-20 px-20">
-        <h1 className="text-neutral-50">Cure-Connect</h1>
+        <h1 className="text-neutral-50">HealValley</h1>
         <ul className="footer-icons flex space-x-10 pt-8">
           <li className="rounded-full">
             <FaFacebook className="text-white h-8 w-8 hover:text-blue-500 cursor-pointer transition-colors duration-300" />

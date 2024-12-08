@@ -127,13 +127,12 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     "host"
   )}/api/v1/users/resetPassword/${resetToken}`;
 
-  console.log(`Password reset URL: ${resetURL}`); // Optional: For debugging
-
+  console.log(`Password reset URL: ${resetURL}`);
   res.status(200).json({
     status: "success",
     message:
       "Password reset token created successfully. Use the reset URL to reset your password.",
-    resetURL, // Optional: Include for testing or debugging
+    resetURL,
   });
 });
 

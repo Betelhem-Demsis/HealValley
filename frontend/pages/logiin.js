@@ -41,7 +41,7 @@ export default function Login() {
       <img src="" alt="Logo" className="logo" />
       <h1>Welcome Back</h1>
       <p className="register-link">
-        Don't have an account? <Link href="/signup">Register</Link>
+        Don't have an account? <Link href="/register">Register</Link>
       </p>
       <form className="login-form" onSubmit={handleSubmit}>
         <input

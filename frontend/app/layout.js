@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" type="image/png" sizes="32x32" href="" />
-        <title>Cure connect</title>
+        <title>HealValley</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
