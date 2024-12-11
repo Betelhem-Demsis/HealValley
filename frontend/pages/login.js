@@ -58,11 +58,9 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <Link href="/Patient">
-          <button type="submit" className="login-button">
-            Login
-          </button>
-        </Link>
+        <button type="submit" className="login-button">
+          Login
+        </button>
       </form>
     </div>
   );

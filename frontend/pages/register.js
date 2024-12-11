@@ -148,11 +148,9 @@ export default function DoctorRegister() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <Link href="/logiin">
-          <button className="register-button" type="submit">
-            Create Account
-          </button>
-        </Link>
+        <button className="register-button" type="submit">
+          Create Account
+        </button>
       </form>
     </div>
   );

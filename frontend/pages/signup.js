@@ -91,11 +91,9 @@ export default function Register() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <Link href="/login">
-          <button className="register-button" type="submit">
-            Create Account
-          </button>
-        </Link>
+        <button className="register-button" type="submit">
+          Create Account
+        </button>
       </form>
     </div>
   );
